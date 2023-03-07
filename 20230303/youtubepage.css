@@ -1,0 +1,192 @@
+.icon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+.sub_title{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+li{
+    list-style: none;
+}
+
+.ch{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ch_info{
+    margin-top: 5px;
+    margin-left: 50px;
+}
+
+.ch_mem{
+    font-size: 12px;
+    color: gray;
+    margin-left: 50px;
+    margin-top: -18px;
+}
+
+.subs{
+    background-color: black;
+    color: white;
+    width: 60px;
+    height: 36px;
+    border-radius: 18px;
+    text-align: center;
+    position: absolute;
+    left: 200px;
+    top: 465px;
+    line-height: 2;
+}
+
+.feel{
+    background-color: black;
+    width: 146px;
+    height: 36px;
+    opacity: 0.7;
+    border-radius: 18px;
+    position: absolute;
+    left: 465px;
+    top: 465px;
+}
+
+.good_btn button{
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+}
+
+.des_good{
+    background-color: black;
+    color: aliceblue;
+    display: none;
+    width: 170px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    border-radius: 10px;
+    line-height: 2.5;
+}
+
+.good_btn:hover .des_good{
+    display: block;
+}
+
+.bad_btn button{
+    position: absolute;
+    left: 90px;
+    top: 7px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+}
+
+.des_bad{
+    background-color: black;
+    color: aliceblue;
+    display: none;
+    width: 210px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: 35px;
+    border-radius: 10px;
+    line-height: 2.5;
+}
+
+.bad_btn:hover .des_bad{
+    display: block;
+}
+
+/* .good_btn button{
+    width: 146px;
+    height: 36px;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    border-radius: 18px;
+    font-size: 17px;
+    position: absolute;
+    left: 465px;
+    top: 465px;
+} */
+
+.share button{
+    width: 84px;
+    height: 36px;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    border-radius: 18px;
+    font-size: 17px;
+    position: absolute;
+    top: 465px;
+    left: 620px;
+}
+
+.des_share{
+    background-color: black;
+    color: aliceblue;
+    display: none;
+    width: 50px;
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 514px;
+    left: 647px;
+    border-radius: 10px;
+    line-height: 2.5;
+}
+
+.share:hover .des_share{
+    display: block;
+}
+
+.more button{
+    width: 36px;
+    height: 36px;
+    background-color: black;
+    opacity: 0.7;
+    border-radius: 50%;
+    position: absolute;
+    top: 465px;
+    left: 713px;
+    background-image: url('https://www.flaticon.com/kr/free-icons/');
+}
+
+.description{
+    background-color: black;
+    color: white;
+    opacity: 70%;
+    border-radius: 13px;
+    width: 700px;
+    height: 104px;
+    overflow: hidden;
+
+    
+}
+
+.description p{
+    margin-left: 15px;
+}
+
+.description span{
+    margin-left: 10px;
+    font-size: 15px;
+}

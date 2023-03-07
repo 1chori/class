@@ -1,0 +1,41 @@
+.enter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 1200px;
+}
+
+
+.video{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.img{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.sub{
+    margin: 0;
+}
+
+img{
+    border-radius: 50%;
+}
+
+span{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+iframe{
+    border-radius: 10px;
+    width: 350px;
+    height: 200px;
+}

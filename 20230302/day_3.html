@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style</title>
+    <style>
+        /* 태그들의 속성을 작성하고 태그에 한번에 적용 시킬 수 있다 */
+        /* id 선택자는 css작성에서 #을 앞에 붙여준다 */
+        /* 여러 속성 중 id 속성을 제일 우선으로 적용된다 */
+        #test{
+            color: red;
+        }
+        /* class는 클래스명 앞에 .을 붙여준다 */
+        .block7{
+            color: blueviolet;
+        }
+
+        /* 같은 속성이 두번 작성되었을 때 맨 밑에 있는 속성이 적용된다 */
+        .block7{
+            color: blue;
+        }
+
+        /* '*'선택자는 모든 태그에 스타일을 적용시킨다 */
+        *{
+            color: aquamarine;
+        }
+
+        /* 태그 이름에도 스타일을 줄 수 있다 */
+        div{
+            color: blueviolet;
+        }
+
+        /* 여러 태그에 속성을 같이 적용시킬 때 */
+        div,h1{
+            color: rgb(141, 34, 155);
+        }
+
+        /* 자식 선택자 */
+        /* 부모 태그 div의 p자식 태그 선택자 */
+
+        div p{
+
+        }
+
+        /* test class 안에 있는 content class에 스타일을 줄 때 */
+        .test .content{
+
+        }
+
+        /* test, content class 모두 가지고 있을 때 붙여서 쓴다 */
+        .test.content{
+            /* <div class='test content'></div> */
+        }
+
+        .test > .content{
+            /*  <div class='test'>
+                    <div class='content'></div> 첫번째 클래스만 스타일 적용
+                    <div class='content'></div>
+                    <div class='content'></div>
+                </div> 
+            */
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- id 선택자 : id 선택자는 문서 안에서 한번만 적용된다
+                    중복되면 안되고 고유의 명을 정해준다.
+                    레이아웃 스타일을 지정해주거나 
+                    이후 자바스크립트를 사용할 때 웹 요소를 구분할 때 사용한다 -->
+    <!-- <div id="test" class="block7">가나다</div> -->
+    <!-- class 선택자 : 같은 태그라도 다른 스타일을 적용시킬때 클래스 선택자를 사용한다.
+                        태그의 클래스명이 중복되어도 괜찮다. -->
+    <!-- <div class="block7">가나다</div> -->
+
+    <div>나도 블록체인 9기</div>
+    <div>나도 블록체인 9기</div>
+    <div>나도 블록체인 9기</div>
+    <div>나도 블록체인 9기</div>
+    <div>나도 블록체인 9기</div>
+    <div>나도 블록체인 9기</div>
+    <h1>나도 블록체인 9기</h1>
+    <h2>나도 블록체인 9기</h2>
+</body>
+</html>

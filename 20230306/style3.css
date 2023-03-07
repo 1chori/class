@@ -1,0 +1,12 @@
+/* font file 다운 받고
+   @font-face 작성.
+   font-family : 사용할 폰트 이름 */
+
+@font-face {
+    font-family: 'BlackHanSans';
+    src: url('./Black_Han_Sans/BlackHanSans-Regular.ttf') format(truetype);
+}
+
+body{
+    font-family: 'BlackHanSans';
+}

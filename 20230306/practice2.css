@@ -1,0 +1,203 @@
+.tab{
+    display: flex;
+    margin-left: 60px;
+}
+
+.tab > input{
+    display: none;
+}
+
+.tab >input + label{
+    display: inline-block;
+    border: 1px solid rgb(208, 204, 204);
+    width: 260px;
+    height: 50px;
+    text-align: center;
+    line-height: 3;
+    cursor: pointer;
+}
+
+.tab > input:checked + label{
+    border: 1px solid black
+}
+
+.box{
+    width: 100px;
+    height: 50px;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+}
+
+input[class='movie_tab']:checked ~ .movie_box{
+    display: block;
+    top: 100px;
+    left: 20px;
+}
+
+input[class='comingsoon_tab']:checked ~ .comingsoon_box{
+    display: block;
+    width: 200px;
+    top: 100px;    
+    left: 20px;
+}
+
+input[class='special_tab']:checked ~ .special_box{
+    display: block;
+    width: 200px;
+    top: 100px;    
+    left: 20px;
+}
+
+input[class='film_tab']:checked ~ .film_box{
+    display: block;
+    width: 200px;
+    top: 100px;    
+    left: 20px;
+}
+
+input[class='clasic_tab']:checked ~ .clasic_box{
+    display: block;
+    width: 200px;
+    top: 100px;    
+    left: 20px;
+}
+
+.movie_list{
+    width: 1450px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+span::after{
+    border: 1px solid;
+    opacity: 20%;
+    height: 5px;
+    content: "";
+    margin: 0 10px;
+}
+
+
+
+li{
+    margin-left: 50px;
+    height: 650px;
+    position: relative;
+}
+
+.poster{
+    margin-bottom: 20px;
+}
+
+.view{
+    position: relative;
+    top: -20px;
+    left: 50px;
+    font-size: 14px;
+    width: 400px;
+}
+
+.find_movie{
+    position: relative;
+    top: -40px;
+    left: 1148px;
+}
+
+.find_movie::before{
+    content: '';
+    background-image: url(https://img.megabox.co.kr/static/pc/images/common/btn/btn-search-input.png);
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-size: cover;
+    top: 8px;
+    left: 190px;
+    cursor: pointer;
+}
+
+.find_movie input{
+    padding-right: 40px;
+    height: 25px;
+}
+
+.des_poster{
+    width: 252px;
+    height: 380px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    opacity: 80%;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
+.poster:hover .des_poster{
+    display: block;
+    cursor: pointer;
+}
+
+
+.movie_title img{
+    width: 30px;
+    height: 30px;
+    
+}
+
+.movie_title .subtitle{
+    width: 180px;
+    font-size: 23px;
+    margin-left: 40px;
+    margin-top: 0px;
+    margin-bottom: 7px;
+    position: absolute;
+    top: 445px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.movie_title date{
+    width: 300px;
+    height: 30px;
+}
+
+.user{
+    margin-top: 10px;
+}
+
+.user .heart{
+    width: 92px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    opacity: 40%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user .buy{
+    width: 92px;
+    height: 40px;
+    background-color: rgb(79, 4, 149);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.user .cinema{
+    width: 92px;
+    height: 40px;
+    background-color: rgb(79, 4, 149);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
