@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.popup_wrap{
+    /* 브라우저 크기 vw(가로) */
+    /* 브라우저 크기 vh(세로) */
+    /* 100vw 보고있는 브라우저 창의 전체 너비 */
+    /* 100vh 보고있는 브라우저 창의 전체 높이 */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0,0.5);
+}
+
+/* 클래스 2개 가지고 있을 때 붙여서 쓴다 */
+.popup_wrap.is_active{
+    display: block;
+}
+
+.popup_wrap .popup_content{
+    background-color: #fff;
+    border-radius: 12px;
+    width: 300px;
+    height: 500px;
+    /* 보고있는 브라우저 기준으로 위치를 맞출 수 있다. fixed */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.popup_wrap .popup_content span{
+    width: 30px;
+    height: 30px;
+    /* 안보이면 block 속성이 없는거다 */
+    display: block;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.popup_wrap .popup_content span::after,
+.popup_wrap .popup_content span::before{
+    content: '';
+    width: 15px;
+    height: 4px;
+    background-color: black;
+    border-radius: 3px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.popup_wrap .popup_content span::before{
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+
