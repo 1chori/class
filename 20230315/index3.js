@@ -21,7 +21,7 @@ let res = [];
 
 // 추첨 전에 세팅작업
 function lottoInit() {
-    lottoNum = [];
+    lottoNum = [];  // 초기화 역할
     // 로또의 번호를 모두 뽑아놓고 가져다 사용하자
     // 1 ~ 45번까지 반복
     for (let i = 1; i <= 45; i++) {
@@ -34,7 +34,7 @@ function lottoInit() {
 
 //로또 추첨 실행 함수
 function lottoplay() {
-    res = [];
+    res = [];  // 초기화 역할
     // 추첨
     for (let i = 0; i < 6; i++) {
         // 0~44 랜덤 숫자를 뽑고 인덱스로 사용하자

@@ -34,3 +34,8 @@ console.log(str2.toUpperCase());
 
 // toLowerCase 소문자로 변경해주는 함수
 console.log(str3.toLowerCase());
+
+
+
+let arr = [1,2,3,4];
+arr.splice(1,2);
