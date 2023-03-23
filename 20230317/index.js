@@ -54,7 +54,7 @@ for (const key in obj) {
     console.log(obj[key]);
 
     // 아래 코드처럼 쓰면 안된다
-    // 객체 아네 있는 key값을 찾는 식이다
+    // 객체 안에 있는 key값을 찾는 식이다
     console.log(obj.key); 
 }
 
@@ -63,7 +63,6 @@ for (const key in obj) {
 
 // BOM 브라우저 객체
 // 브라우저의 기능들을 객체로 사용할 수 있게 해준 것
-alert('dfdf');
 console.log(window);
 
 // onload 메서드는 브라우저의 랜딩이 끝나고 보여줄 준비가 되었을 때 실행되는 함수
@@ -114,8 +113,8 @@ let div6 = document.querySelector('div');
 // 텍스트를 태그에 넣어주고 싶을 때
 // div1
 div1.innerHTML = 'gg'; // gg
-div1.innerHTML = '<div>나 태그</div>'; 
-div1.innerHTML = '<ul><li>태그<li><ul>'; 
+// div1.innerHTML = '<div>나 태그</div>'; 
+// div1.innerHTML = '<ul><li>태그<li><ul>'; 
 // div1 태그의 내용을 추가할 수 있다
 console.log(div1.innerHTML);
 
@@ -129,9 +128,11 @@ let div8 = document.querySelector('.class_div2');
 // 버튼을 누르면 함수를 실행시켜보자
 function btnFN() {
     // class_div2 클래스를 가지고 있는 태그들을 class_div 변수에 배열로 담고
-    let class_div = document.querySelector('.class_div2');
+    let class_div = document.querySelectorAll('.class_div2');
+    // 배열로 담아야하기 때문에 querySeletorAll을 사용한다
     // 그 배열을 forEach 순회하면서 아이템을 매개변수로 받았다
     class_div.forEach(function (i) {  // for문보다 forEach가 편하다
         i.innerHTML = '이 문자로 통일';
     })
+    console.log(class_div);
 }
