@@ -40,7 +40,7 @@ function createCookie(name, value, time) {
 
     let day = 1;
 
-    date.setTime(date.getTime() + day + 1000);
+    date.setTime(date.getTime() + day + 5000);
 
     // 쿠키를 추가하는 방법
     // 쿠키명 = 값;expires + 만료일 +';path=/'

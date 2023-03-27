@@ -46,7 +46,7 @@
 
     // ondragstart : 드래그가 시작될 때
     document.ondragstart = function (e) {
-        if (e.target.classList.contains('item')) {
+        if (e.target.classList.contains('item')) {  // e 함수의 타겟은 item 클래스를 가진 놈이다
             console.log(e.target);
             // 드래그할 태그를 전역공간에 담아놓고 
             _target = e.target;

@@ -161,6 +161,7 @@ while(num !== 5){
     console.log(num);
     num++;
 }
+// 값이 하나씩 출력 // 1 // 2 // 3 // 4 
 
 let num2 = 1;
 while(true){
@@ -185,8 +186,7 @@ while(true){
 // parseInt('정수로 변경할 변수나 값')
 // Number('parseInt와 같다')
 // 다른 형태의 type을 number type으로 형변환 시켜준다
-
-let result = parseInt(inputNum) + Number(inputNum2);
+//let result = parseInt(inputNum) + Number(inputNum2);
 
 // console.log('결과는 과연... : ', result);
 
