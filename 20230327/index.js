@@ -15,43 +15,43 @@ console.log(one, two);
 // 코드를 작성하면서 코드 길이도 줄어들면서 가독성도 좋아지고 시간도 절약할 수 있다
 
 // 변수를 선언하고 배열의 arr2의 값을 구조분해 할당해서 순서대로 할당 시킨다.
-// let arr2 = [3,4,5];
-// let [one1, two1, three1, four1] = arr2;
-// console.log(one1, two1, three1, four1);  // 3 4 5 undefined
+let arr2 = [3,4,5];
+let [one1, two1, three1, four1] = arr2;
+console.log(one1, two1, three1, four1);  // 3 4 5 undefined
 
-// let [a,b] = [1,2];
-// console.log(a,b);  // 1 2
+let [a,b] = [1,2];
+console.log(a,b);  // 1 2
 
-// // 할당되는 값이 없으면 undefined
-// let [c,d] = [1];
-// console.log(c,d);  // 1 undefined
+// 할당되는 값이 없으면 undefined
+let [c,d] = [1];
+console.log(c,d);  // 1 undefined
 
-// // 순서대로 할당된 것만 값이 출력된다
-// let [e,f] = [1,2,3];
-// console.log(e,f);  //  1 2
+// 순서대로 할당된 것만 값이 출력된다
+let [e,f] = [1,2,3];
+console.log(e,f);  //  1 2
 
 // 변수에 디폴트 값도 추가할 수 있다
-let [a,b,c=1] = [1,2,3];
-console.log(a,b,c);  // 1 2 3
+// let [a,b,c=1] = [1,2,3];
+// console.log(a,b,c);  // 1 2 3
 
 
 // 객체의 구조분해 할당
 
 // ES5
-// let name1 = {
-//     firstName : 'lee',
-//     lastName : 'maya'
-// };
-// let name2 = name1.firstName;
-// let name3 = name1.lastName;
-// console.log(name2, name3);
+let name1 = {
+    firstName : 'lee',
+    lastName : 'maya'
+};
+let name2 = name1.firstName;
+let name3 = name1.lastName;
+console.log(name2, name3);
 
-// // ES6 객체의 각 키를 뽑아서 변수에 할당
+// ES6 객체의 각 키를 뽑아서 변수에 할당
 
-// // 순서가 아니고 키를 기준으로 구조분해 할당이 이루어진다.
+// 순서가 아니고 키를 기준으로 구조분해 할당이 이루어진다.
 
-// let {lastName, firstName} = name1;
-// console.log(firstName, lastName); // lee maya
+let {lastName, firstName} = name1;
+console.log(firstName, lastName); // lee maya
 
 // 객체의 디폴트값 추가
 let name4 = {firstName = 'lee', lastName} = {lastName : 'kim'};

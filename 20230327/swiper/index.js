@@ -47,7 +47,8 @@ _swiper.addEventListener('mouseup',function (e) {
 })
 
 
-// // 인덱스를 기준으로 움직임
+
+// 인덱스를 기준으로 움직임
 function swiperMove() {
     _swiperContent.style.left = -(_index * _swiperWidth) + 'px';
 }
@@ -55,18 +56,18 @@ function swiperMove() {
 swiperMove();
 
 
-    _prev.addEventListener('click', function () {
-        if(_index > 0)
-        _index--;
-        swiperMove();
-        setTimeout(() => {
-            if (_index === 0) {
-                _swiperContent.style.transition = '0s';
-                _swiperContent.style.transform.left = 'translateX(-2000px)';
-                _index = 4;
-            }
-        }, 1000);
-    })
+_prev.addEventListener('click', function () {
+    if(_index > 0)
+    _index--;
+    swiperMove();
+    setTimeout(() => {
+        if (_index === 0) {
+            _swiperContent.style.transition = '0s';
+            _swiperContent.style.transform.left = 'translateX(-2000px)';
+            _index = 4;
+        }
+    }, 1000);
+})
 
 
 _next.addEventListener('click', function () {
