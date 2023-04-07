@@ -20,31 +20,29 @@
 
 // 자바스크립트의 배열이나 문자열 등도 이터러블이다
 
-const Arr = [1, 2, 3, 4, 5];
-const objIter = {
-    index: 0,
-    next: function () {
-        if (this.index < Arr.length) {
-            // done은 마지막 요소가 맞는지
-            return { value: Arr[this.index++], done: false };
-        } else {
-            return { done: true };
-        }
-    }
-}
+// const Arr = [1, 2, 3];
+// console.log(Arr);
+// const objIter = {
+//     index: 0,
+//     next: function () {
+//         if (this.index < Arr.length) {
+//             // done은 마지막 요소가 맞는지
+//             return { value: Arr[this.index++], done: false };
+//         } else {
+//             return { done: true };
+//         }
+//     }
+// }
 
-let result = objIter.next();
-console.log(result.value, result.done);
-result = objIter.next();
-console.log(result.value, result.done);
-result = objIter.next();
-console.log(result.value, result.done);
-result = objIter.next();
-console.log(result.value, result.done);
-result = objIter.next();
-console.log(result.value, result.done);
-result = objIter.next();
-console.log(result.value, result.done);
+// let result = objIter.next();
+// console.log(result.value, result.done);
+// result = objIter.next();
+// console.log(result.value, result.done);
+// result = objIter.next();
+// console.log(result.value, result.done);
+// result = objIter.next();
+// console.log(result.value, result.done);
+
 
 // 이터러블 작성
 const Arr2 = [1, 2, 3, 4, 5];
@@ -66,8 +64,8 @@ result2 = iter2.next();
 console.log(result2);
 
 // 이 개념은 값을 바꾸는데 편하고 적합한 함수
-// reduce 함수 값을 바꾼느데 적합한 함수
-// ex) 이터러블 이터레이터를 따르는 이터레이터 값이 value가 숫자라면 
+// reduce 함수 값을 바꾸는데 적합한 함수
+// ex) 이터러블 이터레이터를 따르는 이터레이터 값이 value가 숫자라면
 // 문자로 바꿀 수 있고 여러가지 방법으로 값을 바꿀 수 있다.
 // 배열이나 객체와 같은 데이터도 줄일 수 있다
 
@@ -78,18 +76,18 @@ const Arr3 = [1, 2, 30, 4, 5, 15, 10];
 // 초기값을 안넣으면 배여르이 0번이 초기값으로 설정된다
 
 // 두 값을 더하면서 반환시키는 기능
-// const temp3 = Arr3.reduce(function (acc, value) {
-//     // acc 이전 결과값 return됨
-//     console.log('acc :', acc);
-//     console.log('value :', value);
-//     console.log(acc + value);
-//     return acc + value;
-//     if (acc === 33) {
-//         return 50
-//     } else {
-//         return acc + value;
-//     }
-// }, 0);
+const temp3 = Arr3.reduce(function (acc, value) {
+    // acc 이전 결과값 return됨
+    console.log('acc :', acc);
+    console.log('value :', value);
+    console.log(acc + value);
+    // return acc + value;
+    if (acc === 33) {
+        return 50
+    } else {
+        return acc + value;
+    }
+}, 0);
 
 // 배열을 순회하면서 제일 큰 값을 반환시켜주는 기능
 const max = Arr3.reduce(function (acc, value) {
