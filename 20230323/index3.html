@@ -9,7 +9,7 @@
         li{
             width: 800px;
             height: 80px;
-           
+            display: flex;
         }
 
         li > div{
@@ -49,40 +49,44 @@
     let obj = {key : 24};
     // 객체를 문자열로 변환
     console.log(JSON.stringify(obj));
+    window.localStorage.clear();
 
     function addList() {
         let inputs = document.querySelectorAll('input');
-        let value = window.localStorage.getItem('');
-        //window.localStorage.clear();
+        let value = window.localStorage.getItem("게시판");
+        console.log(inputs);
+        // window.localStorage.clear();
         if (window.localStorage.length == 0) {
-            window.localStorage.setItem('게시판',`{"name" : ${inputs[0].value},"age" : ${inputs[1].value}, "hobby" : ${inputs[2].value}, "number" : ${inputs[3].value}}`)
+            window.localStorage.setItem("게시판",`{"name" : "${inputs[0].value}", "age" : "${inputs[1].value}", "hobby" : "${inputs[2].value}", "number" : "${inputs[3].value}"}`);
         } else{
-            window.localStorage.setItem('게시판',value + "|" +` {"name" : ${inputs[0].value},"age" : ${inputs[1].value}, "hobby" : ${inputs[2].value}, "number" : ${inputs[3].value}}`)
+            window.localStorage.setItem("게시판",value + "|" + `{"name" : "${inputs[0].value}","age" : "${inputs[1].value}", "hobby" : "${inputs[2].value}", "number" : "${inputs[3].value}"}`);
         }
-        console.log(window.localStorage.getItem('게시판'))
+        console.log(window.localStorage.getItem("게시판"));
         // 문자열을 객체로 변환
         //let _json = JSON.parse(window.localStorage.getItem('게시판'));
         //console.log(window.localStorage.getItem('게시판'))
+        render();
     }
 
     function render() {
         let _json = window.localStorage.getItem('게시판');
         // '|' 문자열마다 잘라서 배열로 변경
-        _json = _json.split('|');
         console.log(_json);
+        _json = _json.split('|');
+        _div.innerHTML = "";
         let _ul = document.createElement('ul');
         let _li = document.createElement('li');
         let _div1 = document.createElement('div');
-            let _div2 = document.createElement('div');
-            let _div3 = document.createElement('div');
-            let _div4 = document.createElement('div');
-            _div1.innerHTML = '이름';
-            _div1.innerHTML = '나이';
-            _div1.innerHTML = '취미';
-            _div1.innerHTML = '전화번호';
-            // 삭제 버튼 추가
-            _li.append(_div1,_div2,_div3,_div4);
-            _ul.append(_li);
+        let _div2 = document.createElement('div');
+        let _div3 = document.createElement('div');
+        let _div4 = document.createElement('div');
+        _div1.innerHTML = '이름';
+        _div2.innerHTML = '나이';
+        _div3.innerHTML = '취미';
+        _div4.innerHTML = '전화번호';
+        // 삭제 버튼 추가
+        _li.append(_div1,_div2,_div3,_div4);
+        _ul.append(_li);
         _json.forEach( function(i) {
             let _li = document.createElement('li');
             let _div1 = document.createElement('div');
@@ -90,16 +94,19 @@
             let _div3 = document.createElement('div');
             let _div4 = document.createElement('div');
             _div1.innerHTML = JSON.parse(i).name;
-            _div1.innerHTML = JSON.parse(i).age;
-            _div1.innerHTML = JSON.parse(i).hobby;
-            _div1.innerHTML = JSON.parse(i).number;
+            _div2.innerHTML = JSON.parse(i).age;
+            _div3.innerHTML = JSON.parse(i).hobby;
+            _div4.innerHTML = JSON.parse(i).number;
             _li.style.display = 'flex';
             _li.append(_div1,_div2,_div3,_div4);
             _ul.append(_li)
-        })
+        });
         _div.append(_ul)
     }
-    render();
+
+    if(window.localStorage.length != 0){
+        render();
+    }
 
     addBtn.addEventListener('click',addList);
 </script>
