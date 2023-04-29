@@ -13,17 +13,17 @@
 // nodejs에서 모듈은 각각의 파일 스코프를 가지기때문에 this는 모듈 자체를 가리키게 된다
 
 //레포모드 키고
-// global.console.log()
-// global.console.time() // 코드 시작 시간을 매개변수로
-// global.console.timeEnd() // 코드 종료 후 시간 출력
+global.console.log()
+global.console.time() // 코드 시작 시간을 매개변수로
+global.console.timeEnd() // 코드 종료 후 시간 출력
 
 
 // 전달된 객체를 표 형태로 보여주는 메서드
-// global.console.table(
-//     {
-//         a: { name: '안녕'}, b:{name:'안녕2'}
-//     }
-// )
+global.console.table(
+    {
+        a: { name: '안녕' }, b: { name: '안녕2' }
+    }
+)
 
 
 // 나중에 필요할때가 생기니 잘 알아둘것
