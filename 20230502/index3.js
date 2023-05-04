@@ -9,7 +9,7 @@
 
 // body-parser는 express 미들웨어 요청으로 받은 body의 내용을 요청으로 받은 body의 내용을 req 요청 객체 안에 있는 body 객체로 담아준다.
 // req.body로 호출이 가능해진다.
-// 미들 웨어라는건 쉽게 요청과 응답을 하는 사이 중간에 동작하는 함수
+// 미들 웨어 : use() 메서드의 매개변수에 입력하는 함수. 쉽게 요청과 응답을 하는 사이 중간에 동작하는 함수
 
 const express = require('express');
 const mysql2 = require('mysql2');
@@ -47,6 +47,7 @@ app.set('view engine', 'ejs');
 // express 버전이 올라가면서 bodyParser를 지원해준다
 app.use(express.urlencoded({ extended: false }));
 
+// mysql2 라이브러리를 사용하여 MySQL 데이터베이스 연결 생성
 const _mysql = mysql2.createConnection({
     user: 'root',
     password: 'base1992,.',

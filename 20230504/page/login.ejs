@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logIn</title>
+</head>
+<body>
+    <h2>login</h2>
+    <form action="/login" method="post">
+        <label for="">아이디</label>
+        <input type="text" name="user_id"> <!-- 이 input은 user_id의 키값으로 넘어간다 -->
+        <label for="">비밀번호</label>
+        <input type="text" name="user_pw">
+        <!-- input에 입력을 하게 되면 {user_id : id값, user_pw : pw값} 객체로 요청을 보낸다 -->
+        <button>로그인</button>
+    </form>
+</body>
+</html>
