@@ -25,6 +25,7 @@ const _mysql = mysql2.createConnection({
 // view engine이 템플릿 파일을 보여주는 역할을 해준다
 
 app.set('views', path.join(__dirname, 'page'));
+console.log(__dirname);
 // console.log(app); // views: 'C:\\Users\\pro44\\OneDrive\\바탕 화면\\class\\20230504\\page'
 
 // view engine으로 ejs를 사용할 수 있게 설정
@@ -49,6 +50,8 @@ app.get('/login', (req, res) => {
     res.render('login');
 })
 
+
+// 로그인 요청
 app.post('/login', (req, res) => {
     // 요청에 대한 내용은 req 객체에 들어있다
     // 요청을 하면서 보낸 데이터는 body 객체 안에 들어있다
@@ -67,6 +70,8 @@ app.post('/login', (req, res) => {
             // 로그인 성공
             console.log(result);
             res.render('mypage', { data: result[0] });
+            // result[0]을 하는 이유는 해당 배열의 0번째 객체의 키 값을 불러오기 위함이다. 
+            // result를 하게 되면 해당 배열 자체에서 키 값을 찾게 되므로 찾으려는 값을 불러올 수 없다.
         }
     })
     // res.send('user_id : ' + user_id + 'user_pw : ' + user_pw);
@@ -75,9 +80,12 @@ app.post('/login', (req, res) => {
 
 // 회원가입
 app.post('/signup', (req, res) => {
+    // req.body를 통해 클라이언트가 보낸 요청의 body를 파싱하여 user_id,user_pw 변수에 저장한다.
     const { user_id, user_pw } = req.body;
     console.log(user_id, user_pw);
     const sql = 'INSERT INTO users (user_id, user_pw)VALUES(?,?)';
+    // _mysql.query 함수를 통해 작성한 sql 쿼리문 실행
+    // 첫 번째 매개변수는 실행할 쿼리문, 두 번째 매개변수는 쿼리문에 전달할 값을 배열 형태로 입력
     _mysql.query(sql, [user_id, user_pw], (err) => {
 
         if (err) {
