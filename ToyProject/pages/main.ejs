@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <h1>메인페이지</h1>
+    <div class="sign">
+        <p class="signUp"><a href="/users/signup">회원가입</a></p>
+        <p class="logIn"><a href="/users/login">로그인</a></p>
+    </div>
+    <p><a href="/toy/add">글 추가</a></p>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>본문</th>
+            <th>공감수</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <% data.forEach((el, index) => { %>
+        <tr>
+            <td><%= el.id %></td>
+            <td><%= el.title %></td>
+            <td><a href="/toy/view/<%= el.id %>"><%= el.content %></a></td>
+            <td><%= el.likeup %></td>
+            <td><a href="/toy/edit/<%= el.id %>">수정</a></td>
+            <td><a href="/toy/delete/<%= el.id %>">삭제</a></td>
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

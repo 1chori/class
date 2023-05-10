@@ -9,7 +9,7 @@ const posts = {
             console.log(result);
         } catch (error) {
             // console.log(error);
-            await mysql.query('CREATE TABLE posts(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(20), content VARCHAR(100))');
+            await mysql.query('CREATE TABLE posts(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(20), content VARCHAR(100), like(10))');
         }
     },
 
@@ -68,7 +68,7 @@ const posts = {
     }
 }
 
-posts.delete(5);
+posts.initTable();
 // posts.insert('추가', '추가함');
 // posts.update(1, 'good', 'goodjob');
 

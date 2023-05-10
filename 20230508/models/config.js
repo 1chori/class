@@ -6,6 +6,7 @@ const mysql2 = require('mysql2/promise');
 // createPool() 메서드로 커넥션풀을 생성하고 연결을 관리할 수 있다. promise 객체를 반환해준다
 // 많은 클라이언트가 데이터베이스와 통신할 때 많은 요청이 들어와도 성능이 유지되고 여러개의 요청을 처리할 수 있다
 
+// 연결 풀 만들기
 const mysql = mysql2.createPool({
     user: 'root',
     password: 'base1992,.',

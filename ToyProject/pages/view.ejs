@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+<div class="viewContent">
+    <div class="ID">
+        <div class="ID_1">
+            <label for="">id</label>
+            <input type="text" value="<%= data.id %>" disabled>
+        </div>
+        <div class="ID_2">
+            <form method="post">
+                <label for="">공감수</label>
+                <input class="likeCount" type="text" value='<%= data.likeup %>' name="likeUp"   readonly>
+                <button class="likeBtn">좋아요</button>
+            </form>
+        </div>
+    </div>
+    <div class="title">
+        <label for="">제목</label>
+        <input type="text" value="<%= data.title %>" disabled>
+    </div>
+    <div class="content">
+        <label for="">본문</label>
+        <input type="text" value="<%= data.content %>" disabled>
+    </div>
+    <form method="post">
+        <div class="comment">
+            <label for="">댓글</label>
+            <input type="text" name="content">
+        </div>
+    </form>
+</div>
+<button>댓글 추가</button>
+<button class="goBack"><a href="/toy">목록으로 가기</a></button>
+    
+</body>
+<script>
+    document.querySelector('.likeBtn').addEventListener('click', () => {
+        let likeCountInput = document.querySelector('.likeCount');
+        let likeCount = parseInt(likeCountInput.value);
+        likeCount++;
+        likeCountInput.value = likeCount;
+    })
+</script>
+</html>
