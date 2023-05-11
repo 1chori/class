@@ -14,6 +14,7 @@
             <label for="">id</label>
             <input type="text" value="<%= data.id %>" disabled>
         </div>
+        <!-- 좋아요 -->
         <div class="ID_2">
             <form method="post">
                 <label for="">공감수</label>
@@ -21,6 +22,7 @@
                 <button class="likeBtn">좋아요</button>
             </form>
         </div>
+        <!-- 여기까지 좋아요 -->
     </div>
     <div class="title">
         <label for="">제목</label>
@@ -29,15 +31,32 @@
     <div class="content">
         <label for="">본문</label>
         <input type="text" value="<%= data.content %>" disabled>
+        <img src="https://img.hankyung.com/photo/202112/AA.28318632.1.jpg" alt="없음">
     </div>
-    <form method="post">
+    <!-- 댓글 -->
+    <table class="commentTable">
+        <tr>
+            <!-- <th>번호</th> -->
+            <th class="content">내용</th>
+            <th class="delete">삭제</th>
+        </tr>
+        <% comment_data.forEach((el, index) => { %>
+            <tr>
+                <!-- <td><%= el.id %></td> -->
+                <td class="content"><%= el.cmt_content %></td>
+                <td class="delete"><a href="/comment/delete/<%= el.id %>">삭제</a></td>
+            </tr>
+        <% }); %>
+    </table>
+    <form id="comment" action="/comment/<%= data.id %>" method="post">
         <div class="comment">
             <label for="">댓글</label>
             <input type="text" name="content">
         </div>
+        <button>댓글 추가</button>
     </form>
 </div>
-<button>댓글 추가</button>
+<!-- 여기까지 댓글 -->
 <button class="goBack"><a href="/toy">목록으로 가기</a></button>
     
 </body>

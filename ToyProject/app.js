@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/toy', postRoute);
 app.use('/users', userRoute);
-app.use('/toy/view', commentRoute);
+app.use('/comment', commentRoute);
 
 app.listen(8000, () => {
     console.log('토이 서버 열렸다!');

@@ -6,14 +6,14 @@ const comment = {
             const [result] = await mysql.query('SELECT * FROM comment');
             console.log(result);
         } catch (error) {
-            await mysql.query('CREATE TABLE comment(id INT AUTO_INCREMENT PRIMARY KEY, cmt_content VARCHAR(100))');
+            await mysql.query('CREATE TABLE comment(id INT, cmt_content VARCHAR(100))');
         }
     },
 
     // 전체 댓글 조회
-    viewAll: async () => {
+    viewAllCmt: async (id) => {
         try {
-            const [result] = await mysql.query('SELECT * FROM comment');
+            const [result] = await mysql.query('SELECT * FROM comment WHERE id=?', [id]);
             console.log(result);
             return result;
         } catch (error) {
@@ -22,9 +22,9 @@ const comment = {
     },
 
     // 댓글 추가
-    add: async (cmt_content) => {
+    add: async (id, cmt_content) => {
         try {
-            await mysql.query('INSERT INTO comment (cmt_content) VALUES (?)', [cmt_content]);
+            await mysql.query('INSERT INTO comment (id, cmt_content) VALUES (?,?)', [id, cmt_content]);
             console.log('글 추가 완료');
         } catch (error) {
             console.log('글 추가 에러');

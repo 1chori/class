@@ -26,6 +26,7 @@ table, th {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .ID{
@@ -55,4 +56,30 @@ table, th {
     margin-top: 20px;
 }
 
+/* view page - 댓글 */
+
+.commentTable, #comment{
+    margin-top: 20px;
+}
+
+.commentTable .content{
+    width: 92%;
+}
+
+.commentTable .delete{
+    width: 6%;
+}
+
+.comment input{
+    width: 550px;
+    height: 25px;
+    margin-left: 4px;
+    
+}
+
+#comment button{
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
+}
 

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { ViewAll, ViewEachList, Insert, Delete, Edit, LikeUp } = require('../controller/toy');
+const { ViewAllCmt, DeleteCmt, InsertCmt } = require('../controller/comment');
 
 router.get('/', async (req, res) => {
     try {
@@ -27,11 +28,13 @@ router.post('/add', async (req, res) => {
     }
 })
 
+
 // 글 상세 조회
 router.get('/view/:id', async (req, res) => {
     try {
         const data = await ViewEachList(req, res);
-        res.render('view', { data });
+        const comment_data = await ViewAllCmt(req, res);
+        res.render('view', { data, comment_data });
     } catch (error) {
         console.log('게시글 상세 페이지 에러남');
     }
@@ -41,10 +44,8 @@ router.get('/view/:id', async (req, res) => {
 router.post('/view/:id', async (req, res) => {
     try {
         const { likeUp } = req.body;
-        console.log(likeUp)
         const data = await LikeUp(req, res);
         console.log('좋아요 성공!!');
-
         res.render('view', { data });
     } catch (error) {
         console.log('좋아요 에러');
@@ -75,6 +76,7 @@ router.post('/edit/:id', async (req, res) => {
 router.get('/delete/:id', async (req, res) => {
     try {
         await Delete(req, res);
+        await DeleteCmt(req, res);
         res.redirect('/toy');
     } catch (error) {
         console.log('라우트-삭제 에러');

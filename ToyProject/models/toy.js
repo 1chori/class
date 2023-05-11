@@ -6,7 +6,7 @@ const toy = {
             const [result] = await mysql.query('SELECT * FROM toy');
             console.log(result);
         } catch (error) {
-            await mysql.query('CREATE TABLE toy(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(20), content VARCHAR(100), likeup INT(11))');
+            await mysql.query('CREATE TABLE toy(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(20), content VARCHAR(100), likeup INT(11), image VARCHAR(200))');
         }
 
     },
@@ -49,7 +49,7 @@ const toy = {
             await mysql.query('INSERT INTO toy (title, content) VALUES (?,?)', [title, content]);
             console.log('글 추가 완료');
         } catch (error) {
-            console.log('글 추가 에러');
+            console.log(error);
         }
     },
 
