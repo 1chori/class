@@ -1,12 +1,12 @@
 const config = {
     dev: {
-        username: 'root',
-        password: 'base1992,.',
-        database: 'test7',
-        host: '127.0.0.1',
+        username: process.env.USERNAMES,
+        password: process.env.PASSWORDS,
+        database: process.env.DATABASES,
+        host: process.env.HOSTS,
         // 사용할 데이터베이스
         dialect: 'mysql'
     }
 }
-console.log(config);
+console.log(config)
 module.exports = config;

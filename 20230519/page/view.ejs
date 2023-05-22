@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/signup" method="post">
-        <label for="">ID</label>
-        <input type="text" name="user_id">
-        <label for="">Password</label>
-        <input type="text" name="user_pw">
-        <button>회원가입</button>
-    </form>
+    작성자 : <%= data.name %>
+    <ul>
+        <% data.Posts.forEach((el) => { %>
+            <li>
+                <span><%= el.id %></span>
+                <span><%= el.msg %></span>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>

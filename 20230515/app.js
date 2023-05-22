@@ -56,6 +56,7 @@ app.post('/login', (req, res) => {
         }, process.env.ACCESS_TOKEN_KEY, {
             expiresIn: '20s',
         });
+
         const refreshToken = jwt.sign({
             id: user.id
         }, process.env.REFRESH_TOKEN_KEY, {
