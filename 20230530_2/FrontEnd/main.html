@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    #profileImg{
+        width: 140px;
+        height: 180px;
+        border: 1px solid;
+    }
+</style>
+<body>
+    <p>메인페이지</p>
+    <img id="profileImg" src="" alt="">
+    <button id="uploadBtn">전송</button>
+    <input type="file" id="file">
+    <div>
+        <span>이름 : </span>
+        <span id="user_nickName"></span>
+    </div>
+</body>
+<script>
+    async function getApi() {
+        try {
+            const {data} = await axios.get('http://127.0.0.1:8080/login/view', {
+                withCredentials: true
+            });
+            user_nickName.innerHTML = data.nickName;
+            profileImg.setAttribute('src', `http://localhost:8080/${data.img_src}`);
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    getApi();
+
+    uploadBtn.onclick = () => {
+        const form = new FormData();
+        form.append('profileImg', profileImg.value);
+        console.log(file.files[0]);
+
+        form.append('uploadedImgs', file.files[0]);
+        axios.post('http://127.0.0.1:8080/upload', form, {
+            'Content-Type': 'multipart/form-data'
+        }).then((e) => {
+            console.log('잘 전달됨');
+            console.log(e.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+</script>
+</html>

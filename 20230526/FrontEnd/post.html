@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+    #isLoading{
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #isLoading img{
+        width: 300px;
+    }
+
+    #isLoading.disable{
+        display: none;
+    }
+
+    #table_title,
+    #table_content{
+        display: flex;
+    }
+
+    #table_title div,
+    #table_content div{
+        border: 1px solid;
+        width: 100px;
+        text-align: center;
+    }
+
+
+</style>
+<body>
+    <div id="isLoading">
+        <img src="./img/loading.gif" alt="">
+    </div>
+    <a href="http://127.0.0.1:5501/20230526/FrontEnd/createPost.html">게시글 쓰기</a>
+    <div id="table">
+        <div id="table_title">
+            <div>번호</div>
+            <div>타이틀</div>
+            <div>작성자</div>
+            <div>삭제</div>
+        </div>
+        <div id="table_content_group">
+        </div>
+    </div>
+</body>
+<script>
+    async function getAPI() {
+        try {
+            const {data} = await axios.get('http://127.0.0.1:8000/post',{
+                withCredentials: true
+            });
+            // let tableContent = '';
+            console.log(data);
+            data.forEach((el, index) => {
+                table_content_group.innerHTML += `
+                <div id="table_content">
+                    <div id="id">${data[index].id}</div>
+                    <div id="title"><a href="http://127.0.0.1:5501/20230526/FrontEnd/view.html">${data[index].title}</a></div>
+                    <div id="writer">${data[index].writer}</div>
+                    <div><button onclick="deletePost(${data[index].id})">삭제</button></div>
+                </div>
+                `
+            });
+            // table_content_group.innerHTML = tableContent;
+            isLoading.classList.add('disable');
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    getAPI();
+
+    async function deletePost(id) {
+        try {
+            const response = await axios.delete(`http://127.0.0.1:8000/post/delete_post/${id}`,{
+                withCredentials: true
+            });
+            console.log(response);
+            location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+</script>
+</html>
