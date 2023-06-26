@@ -130,9 +130,12 @@
         loginBtn.onclick = () => {
             login.style.display = 'none';
             main.style.display = 'block';
+
             const name = username.value;
+            console.log(rooms);
             console.log(rooms.options);
             console.log(rooms.selectedIndex);
+            
             // 선택한 인덱스의 옵션 value 값
             let room = rooms.options[rooms.selectedIndex].value;
             console.log(room);

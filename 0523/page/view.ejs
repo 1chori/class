@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/board/edit_board/<%= Posts.id %>" method="post">
+        <label for="">id</label>
+        <input type="text" name="id" value="<%= Posts.id %>" disabled>
+        <label for="">작성자</label>
+        <input type="text" name="writer" value="<%= Posts.writer %>" disabled>
+        <label for="">제목</label>
+        <input type="text" name="title" value="<%= Posts.title %>">
+        <label for="">내용</label>
+        <input type="text" name="content" value="<%= Posts.content %>">
+        <button>수정</button>
+    </form>
+    <a href="/board">목록으로 가기</a>
+</body>
+</html>

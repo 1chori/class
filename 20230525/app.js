@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 let userId = [];
 let userList = [];
 
+
 const io = socketIO(server);
 io.on('connection', (socket) => {
     // 유저 접속 시
@@ -33,6 +34,11 @@ io.on('connection', (socket) => {
     console.log(userId);
     io.emit('userList', userId);
 
+    socket.on('joinUser', (name) => {
+        userList.push(name);
+        console.log(userList);
+        io.sockets.emit('joinUser', userList, userId);
+    })
 
     socket.on('joinRoom', (room, name) => {
         // 방에 유저가 접속하면 join() 메서드로 방에 입장시킨다
@@ -55,11 +61,11 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('유저 나감');
         userId = userId.filter((value) => value != socket.id);
-        userList = userList.filter((value) => value != name);
-        console.log(name);
+        userList.splice(index, 1);
         io.emit('userList', userList);
         // 현재 접속중인 유저 아이디
         console.log(userId);
+
     })
 
     socket.on('chat', (room, name, msg) => {
@@ -68,5 +74,6 @@ io.on('connection', (socket) => {
 
     socket.on('chat2', (id, name, msg) => {
         io.to(id).emit('chat', name, '귓속말 :' + msg);
+        // io.to(socket.id).emit('chat', name, '귓속말 :' + msg);
     })
 })
